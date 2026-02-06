@@ -1,0 +1,310 @@
+-- All Made By Myself. No Bull#hit --
+
+-- Join My Discord Pls!: . --
+
+-- SERVICES --
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- GUI --
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = player:WaitForChild("PlayerGui")
+
+-- MAIN FRAME --
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 400, 0, 250)
+MainFrame.Position = UDim2.new(0.5, -60, 0.5, -160)
+MainFrame.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+MainFrame.BackgroundTransparency = 0.7
+MainFrame.BorderSizePixel = 0
+MainFrame.Parent = ScreenGui
+
+Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, 8)
+
+-- SCROLLING FRAME (grey area) ---
+local Scroll = Instance.new("ScrollingFrame") -- ✅ FIXED NAME
+Scroll.Size = UDim2.new(0, 260, 0, 220)
+Scroll.Position = UDim2.new(0, 0, 0, 25)
+Scroll.CanvasSize = UDim2.new(0, 0, 0, 300)
+Scroll.ScrollBarThickness = 6
+Scroll.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
+Scroll.BackgroundTransparency = 0.7
+Scroll.BorderSizePixel = 0
+Scroll.Parent = MainFrame
+
+Instance.new("UICorner", Scroll).CornerRadius = UDim.new(0, 8)
+
+-- External Scroll Frame On Side (grey area) --
+local Scroll1 = Instance.new("ScrollingFrame") -- ✅ FIXED NAME
+Scroll1.Size = UDim2.new(0, 125, 0, 220)
+Scroll1.Position = UDim2.new(0, 270, 0, 25)
+Scroll1.CanvasSize = UDim2.new(0, 0, 0, 300)
+Scroll1.ScrollBarThickness = 6
+Scroll1.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
+Scroll1.BackgroundTransparency = 0.7
+Scroll1.BorderSizePixel = 0
+Scroll1.Parent = MainFrame
+
+Instance.new("UICorner", Scroll1).CornerRadius = UDim.new(0, 8)
+
+-- CLOSE BUTTON (top-right) --
+local Close = Instance.new("TextButton")
+Close.Size = UDim2.new(0, 22, 0, 22)
+Close.AnchorPoint = Vector2.new(1, 0)
+Close.Position = UDim2.new(1, 0, 0, 0)
+Close.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
+Close.BackgroundTransparency = 0.7
+Close.BorderSizePixel = 0
+Close.Text = "X"
+Close.TextScaled = true
+Close.Font = Enum.Font.GothamBold
+Close.TextColor3 = Color3.new(0, 0, 0)
+Close.Parent = MainFrame
+
+Instance.new("UICorner", Close).CornerRadius = UDim.new(0, 8)
+
+Close.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+end)
+
+-- Text Label (middle-top) --
+local Label = Instance.new("TextLabel")
+Label.Size = UDim2.new(0, 128, 0, 16)
+Label.AnchorPoint = Vector2.new(1, 0)
+Label.Position = UDim2.new(1, -245, 0, 0)
+Label.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
+Label.BackgroundTransparency = 1
+Label.BorderSizePixel = 0
+Label.Text = "Lunar's FE Script Source"
+Label.TextScaled = false
+Label.TextSize = 16
+Label.Font = Enum.Font.GothamBold
+Label.TextColor3 = Color3.new(255, 255, 255)
+Label.Parent = MainFrame
+
+Instance.new("UICorner", Label).CornerRadius = UDim.new(0, 8)
+
+-- Scroll Frame Buttons To Activate --
+-- UI layout for scrolling buttons --
+
+-- Auto resize canvas --
+
+-- Create a button inside the scroll frame --
+local Button1 = Instance.new("TextButton")
+Button1.Size = UDim2.new(1, -135, 0, 38)
+Button1.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button1.Position = UDim2.new(0, 0, 0, 8)
+Button1.Text = "sypcer's Collection [FE]"
+Button1.TextColor3 = Color3.new(1, 1, 1)
+Button1.TextScaled = true
+Button1.Font = Enum.Font.Gotham
+Button1.BorderSizePixel = 0
+Button1.Parent = Scroll
+Button1.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button1).CornerRadius = UDim.new(0, 6)
+
+Button1.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/sypcerr/FECollection/refs/heads/main/script.lua",true))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button2 = Instance.new("TextButton")
+Button2.Size = UDim2.new(1, -135, 0, 38)
+Button2.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button2.Position = UDim2.new(0, 127.5, 0, 8)
+Button2.Text = "c00lgui revival [SE]"
+Button2.TextColor3 = Color3.new(1, 1, 1)
+Button2.TextScaled = true
+Button2.Font = Enum.Font.Gotham
+Button2.BorderSizePixel = 0
+Button2.Parent = Scroll
+Button2.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button2).CornerRadius = UDim.new(0, 6)
+
+Button2.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/hyperionhax/c00lgui/main/SpecialEdition"))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button3 = Instance.new("TextButton")
+Button3.Size = UDim2.new(1, -135, 0, 38)
+Button3.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button3.Position = UDim2.new(0, 127.5, 0, 48)
+Button3.Text = "AquaMatrix [FE]"
+Button3.TextColor3 = Color3.new(1, 1, 1)
+Button3.TextScaled = true
+Button3.Font = Enum.Font.Gotham
+Button3.BorderSizePixel = 0
+Button3.Parent = Scroll
+Button3.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button3).CornerRadius = UDim.new(0, 6)
+
+Button3.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button4 = Instance.new("TextButton")
+Button4.Size = UDim2.new(1, -135, 0, 38)
+Button4.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button4.Position = UDim2.new(0, 0, 0, 48)
+Button4.Text = "sySt3m-Br0k3n [FE]"
+Button4.TextColor3 = Color3.new(1, 1, 1)
+Button4.TextScaled = true
+Button4.Font = Enum.Font.Gotham
+Button4.BorderSizePixel = 0
+Button4.Parent = Scroll
+Button4.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button4).CornerRadius = UDim.new(0, 6)
+
+Button4.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Ragdoll-Engine-BEST-SCRIPT-WORKING-SystemBroken-7544"))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button5 = Instance.new("TextButton")
+Button5.Size = UDim2.new(1, -135, 0, 38)
+Button5.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button5.Position = UDim2.new(0, 0, 0, 88)
+Button5.Text = "R15 Animations [FE]"
+Button5.TextColor3 = Color3.new(1, 1, 1)
+Button5.TextScaled = true
+Button5.Font = Enum.Font.Gotham
+Button5.BorderSizePixel = 0
+Button5.Parent = Scroll
+Button5.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button5).CornerRadius = UDim.new(0, 6)
+
+Button5.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxten-Keyes/music/refs/heads/main/music%23%5Bscripts%5D/music%23%5Bmiscellaneous%5D/music%23%5Bfe%20r15%20animation%20player%5D.lua"))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button100 = Instance.new("TextButton")
+Button100.Size = UDim2.new(1, -245, 0, 38)
+Button100.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button100.Position = UDim2.new(0, 120, 0, 8)
+Button100.Text = "Blind Reaper [Just A Baseplate] [FE]"
+Button100.TextColor3 = Color3.new(1, 1, 1)
+Button100.TextScaled = true
+Button100.Font = Enum.Font.Gotham
+Button100.BorderSizePixel = 0
+Button100.Parent = Scroll1
+Button100.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button100).CornerRadius = UDim.new(0, 60)
+
+Button100.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ONEReverseCard/My-Scripts/main/Netless%20Blind%20Reaper"))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button101 = Instance.new("TextButton")
+Button101.Size = UDim2.new(1, -245, 0, 38)
+Button101.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button101.Position = UDim2.new(0, 120, 0, 48)
+Button101.Text = "Server Admin [Just A Baseplate] [FE]"
+Button101.TextColor3 = Color3.new(1, 1, 1)
+Button101.TextScaled = true
+Button101.Font = Enum.Font.Gotham
+Button101.BorderSizePixel = 0
+Button101.Parent = Scroll1
+Button101.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button101).CornerRadius = UDim.new(0, 60)
+
+Button101.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ONEReverseCard/My-Scripts/main/Netless%20Server%20Admin.md"))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button102 = Instance.new("TextButton")
+Button102.Size = UDim2.new(1, -245, 0, 38)
+Button102.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button102.Position = UDim2.new(0, 120, 0, 88)
+Button102.Text = "Aimbot"
+Button102.TextColor3 = Color3.new(1, 1, 1)
+Button102.TextScaled = true
+Button102.Font = Enum.Font.Gotham
+Button102.BorderSizePixel = 0
+Button102.Parent = Scroll1
+Button102.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button102).CornerRadius = UDim.new(0, 60)
+
+Button102.MouseButton1Click:Connect(function()
+    --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+--Updated Keybind Logic now just type "RightShift" in the "K" 
+--https://raw.githubusercontent.com/randomuser832/Settings/refs/heads/main/Settings for a rundown on the settings
+
+--// SETTINGS (user-editable)
+_G.AimbotEnabled = true
+_G.TeamCheck = false
+_G.AimPart = "Head"
+_G.Sensitivity = 1 -- 1 = snap, lower = smooth
+
+-- ESP Settings
+_G.ESPEnabled = true
+_G.ESPColorName = "green"
+_G.ESPFilled = false
+_G.ESPThickness = 1
+_G.ESPTransparency = 1
+_G.ESPRainbow = true
+
+-- FOV Settings
+_G.FOVEnabled = true
+_G.FOVColorName = "white"
+_G.FOVRadius = 60
+_G.FOVFilled = false
+_G.FOVTransparency = 0.7
+_G.FOVThickness = 1
+_G.FOVRainbow = true
+_G.FOVCircleSides = 64
+
+-- Toggle Key
+_G.ScriptEnabled = true
+_G.ToggleKey = "RightShift"
+
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/randomuser832/Scripts25/refs/heads/main/UniversalAimbotLoadString"))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button103 = Instance.new("TextButton")
+Button103.Size = UDim2.new(1, -245, 0, 38)
+Button103.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button103.Position = UDim2.new(0, 120, 0, 128)
+Button103.Text = "R15 Gun [FE]"
+Button103.TextColor3 = Color3.new(1, 1, 1)
+Button103.TextScaled = true
+Button103.Font = Enum.Font.Gotham
+Button103.BorderSizePixel = 0
+Button103.Parent = Scroll1
+Button103.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button103).CornerRadius = UDim.new(0, 60)
+
+Button103.MouseButton1Click:Connect(function()
+    --[[
+    FE gun by MyWorld
+    
+    accessory ids (choose one u like):
+        14353953259 --sniper
+        14411367823 --blaster
+        14514449669 --blaster
+        119189450852355 --crossbow
+        13822189002 --black rocket launcher
+        13822187745 --white rocket launcher
+    
+    the animations are R15 only, R6 not supported
+]]
+
+loadstring(game:HttpGet("https://pastebin.com/raw/pYMbRb7w"))()
+end)
