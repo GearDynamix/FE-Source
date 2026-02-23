@@ -13,6 +13,8 @@ local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = player:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 
+-- Frames, Etc --
+
 -- MAIN FRAME --
 local MainFrame = Instance.new("Frame")
 MainFrame.Size = UDim2.new(0, 400, 0, 250)
@@ -63,7 +65,7 @@ Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, 8)
 local Scroll = Instance.new("ScrollingFrame") -- ✅ FIXED NAME
 Scroll.Size = UDim2.new(0, 260, 0, 220)
 Scroll.Position = UDim2.new(0, 0, 0, 25)
-Scroll.CanvasSize = UDim2.new(0, 0, 0, 300)
+Scroll.CanvasSize = UDim2.new(0, 0, 0, 448)
 Scroll.ScrollBarThickness = 6
 Scroll.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
 Scroll.BackgroundTransparency = 0.7
@@ -76,7 +78,7 @@ Instance.new("UICorner", Scroll).CornerRadius = UDim.new(0, 8)
 local Scroll1 = Instance.new("ScrollingFrame") -- ✅ FIXED NAME
 Scroll1.Size = UDim2.new(0, 125, 0, 220)
 Scroll1.Position = UDim2.new(0, 270, 0, 25)
-Scroll1.CanvasSize = UDim2.new(0, 0, 0, 300)
+Scroll1.CanvasSize = UDim2.new(0, 0, 0, 448)
 Scroll1.ScrollBarThickness = 6
 Scroll1.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
 Scroll1.BackgroundTransparency = 0.7
@@ -355,50 +357,91 @@ Button12.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Blukez/Scripts/main/UTG%20V3%20RAW'))()
 end)
 
-
 -- Create a button inside the scroll frame --
-local Button100 = Instance.new("TextButton")
-Button100.Size = UDim2.new(1, -245, 0, 38)
-Button100.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
-Button100.Position = UDim2.new(0, 120, 0, 8)
-Button100.Text = "Blind Reaper [Just A Baseplate] [FE]"
-Button100.TextColor3 = Color3.new(1, 1, 1)
-Button100.TextScaled = true
-Button100.Font = Enum.Font.Gotham
-Button100.BorderSizePixel = 0
-Button100.Parent = Scroll1
-Button100.BackgroundTransparency = 0.7
+local Button13 = Instance.new("TextButton")
+Button13.Size = UDim2.new(1, -135, 0, 38)
+Button13.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button13.Position = UDim2.new(0, 0, 0, 248)
+Button13.Text = "Gaze R15 Player Animations Hub [FE]"
+Button13.TextColor3 = Color3.new(1, 1, 1)
+Button13.TextScaled = true
+Button13.Font = Enum.Font.Gotham
+Button13.BorderSizePixel = 0
+Button13.Parent = Scroll
+Button13.BackgroundTransparency = 0.7
 
-Instance.new("UICorner", Button100).CornerRadius = UDim.new(0, 60)
+Instance.new("UICorner", Button13).CornerRadius = UDim.new(0, 6)
 
-Button100.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ONEReverseCard/My-Scripts/main/Netless%20Blind%20Reaper"))()
+Button13.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Gazer-Ha/Reimagined/refs/heads/main/FE%20Animation%20editor'))()
 end)
 
 -- Create a button inside the scroll frame --
-local Button101 = Instance.new("TextButton")
-Button101.Size = UDim2.new(1, -245, 0, 38)
-Button101.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
-Button101.Position = UDim2.new(0, 120, 0, 48)
-Button101.Text = "Server Admin [Just A Baseplate] [FE]"
-Button101.TextColor3 = Color3.new(1, 1, 1)
-Button101.TextScaled = true
-Button101.Font = Enum.Font.Gotham
-Button101.BorderSizePixel = 0
-Button101.Parent = Scroll1
-Button101.BackgroundTransparency = 0.7
+local Button14 = Instance.new("TextButton")
+Button14.Size = UDim2.new(1, -135, 0, 38)
+Button14.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button14.Position = UDim2.new(0, 127.5, 0, 248)
+Button14.Text = "Chat Lurker-V1 [Not FE]"
+Button14.TextColor3 = Color3.new(1, 1, 1)
+Button14.TextScaled = true
+Button14.Font = Enum.Font.Gotham
+Button14.BorderSizePixel = 0
+Button14.Parent = Scroll
+Button14.BackgroundTransparency = 0.7
 
-Instance.new("UICorner", Button101).CornerRadius = UDim.new(0, 60)
+Instance.new("UICorner", Button14).CornerRadius = UDim.new(0, 6)
 
-Button101.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/ONEReverseCard/My-Scripts/main/Netless%20Server%20Admin.md"))()
+Button14.MouseButton1Click:Connect(function()
+    _G.ChatLoggerToggleKey = Enum.KeyCode.F2 -- Toggle UI key
+    _G.ChatLoggerTransparency = 0.95 -- Transparency (0 = full transparent, 1 = fully visible)
+    _G.ChatLoggerFadeWhenNotHovered = true -- Fade when unpinned & not hovered
+
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RostarG/lurker/refs/heads/main/lurkerv1.lua"))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button15 = Instance.new("TextButton")
+Button15.Size = UDim2.new(1, -135, 0, 38)
+Button15.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button15.Position = UDim2.new(0, 127.5, 0, 288)
+Button15.Text = "Remote Trigger By Lunar [FE]"
+Button15.TextColor3 = Color3.new(1, 1, 1)
+Button15.TextScaled = true
+Button15.Font = Enum.Font.Gotham
+Button15.BorderSizePixel = 0
+Button15.Parent = Scroll
+Button15.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button15).CornerRadius = UDim.new(0, 6)
+
+Button15.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GearDynamix/FE-Source/refs/heads/main/Lunar's%20FE%20Remote%20Script"))()
+end)
+
+-- Create a button inside the scroll frame --
+local Button16 = Instance.new("TextButton")
+Button16.Size = UDim2.new(1, -135, 0, 38)
+Button16.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button16.Position = UDim2.new(0, 0, 0, 288)
+Button16.Text = "Hat Orbit By Lunar [FE]"
+Button16.TextColor3 = Color3.new(1, 1, 1)
+Button16.TextScaled = true
+Button16.Font = Enum.Font.Gotham
+Button16.BorderSizePixel = 0
+Button16.Parent = Scroll
+Button16.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button16).CornerRadius = UDim.new(0, 6)
+
+Button16.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GearDynamix/FE-Source/refs/heads/main/Lunar's%20FE%20Hat%20Orbit%20START%20ISNT%20FE"))()
 end)
 
 -- Create a button inside the scroll frame --
 local Button102 = Instance.new("TextButton")
 Button102.Size = UDim2.new(1, -245, 0, 38)
 Button102.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
-Button102.Position = UDim2.new(0, 120, 0, 168)
+Button102.Position = UDim2.new(0, 120, 0, 8)
 Button102.Text = "Aimbot"
 Button102.TextColor3 = Color3.new(1, 1, 1)
 Button102.TextScaled = true
@@ -452,7 +495,7 @@ end)
 local Button103 = Instance.new("TextButton")
 Button103.Size = UDim2.new(1, -245, 0, 38)
 Button103.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
-Button103.Position = UDim2.new(0, 120, 0, 128)
+Button103.Position = UDim2.new(0, 120, 0, 48)
 Button103.Text = "R15 Gun [FE]"
 Button103.TextColor3 = Color3.new(1, 1, 1)
 Button103.TextScaled = true
@@ -479,60 +522,4 @@ Button103.MouseButton1Click:Connect(function()
 ]]
 
 loadstring(game:HttpGet("https://pastebin.com/raw/pYMbRb7w"))()
-end)
-
--- Create a button inside the scroll frame --
-local Button104 = Instance.new("TextButton")
-Button104.Size = UDim2.new(1, -245, 0, 38)
-Button104.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
-Button104.Position = UDim2.new(0, 120, 0, 88)
-Button104.Text = "Lightning Cannon [Just A Baseplate] [FE]"
-Button104.TextColor3 = Color3.new(1, 1, 1)
-Button104.TextScaled = true
-Button104.Font = Enum.Font.Gotham
-Button104.BorderSizePixel = 0
-Button104.Parent = Scroll1
-Button104.BackgroundTransparency = 0.7
-
-Instance.new("UICorner", Button104).CornerRadius = UDim.new(0, 60)
-
-Button104.MouseButton1Click:Connect(function()
---[[
-	Info:
-	Name: FE Maddox LC
-	Converted: ???
-	Fixed: MelonScripter
-
-   Credits:
-   Emper - Reanimate
-   MyWorld - Optimization
-   
-   Hats:
-   Paid Rig 1 (Cheaper, VIable)
-   https://www.roblox.com/catalog/11263254795/Dummy-Head-For-Headless
-   https://www.roblox.com/catalog/11159410305/Rectangle-Head-For-Headless  
-   https://www.roblox.com/catalog/12344545199/Extra-Left-hand-moving-Blocky-white
-   https://www.roblox.com/catalog/12344591101/Extra-Right-hand-moving-Blocky-white
-   https://www.roblox.com/catalog/13779879140/Black-Fluffy-Fur-Body
-
-   Paid Rig 2 (More Expensive, Better)
-   https://www.roblox.com/catalog/14768701869/White-Extended-Left-Arm
-   https://www.roblox.com/catalog/14255554762/Extra-Left-White-Arm
-   https://www.roblox.com/catalog/14768693948/White-Extended-Right-Arm
-   https://www.roblox.com/catalog/14255556501/Extra-Right-White-Arm
-   https://www.roblox.com/catalog/14255528083/Torso-Extension
-
-   Free Rig
-   https://www.roblox.com/catalog/3033910400/International-Fedora-Germany
-   https://www.roblox.com/catalog/3409612660/International-Fedora-USA
-   https://www.roblox.com/catalog/9867481700/Le-Rouge-Cross-body-Bag-1-0
-   https://www.roblox.com/catalog/9867487176/Le-Rouge-Cross-body-Bag-3-0
-   https://www.roblox.com/catalog/4819740796/Robox
-
-  Socials:
-   https://twitter.com/MelonScripter
-   https://www.youtube.com/@MelonScripter
-]]
-
-loadstring(game:HttpGet("https://gist.githubusercontent.com/MelonsStuff/d022e498559cc0568d71487241159531/raw/c4e3d0ba4c958b136693c31a73adabef9ac7858c/LightningCannon.txt"))()
 end)
