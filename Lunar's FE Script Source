@@ -438,6 +438,25 @@ Button16.MouseButton1Click:Connect(function()
 end)
 
 -- Create a button inside the scroll frame --
+local Button17 = Instance.new("TextButton")
+Button17.Size = UDim2.new(1, -135, 0, 38)
+Button17.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button17.Position = UDim2.new(0, 0, 0, 328)
+Button17.Text = "Vexro's R15 Emote Hub [FE]"
+Button17.TextColor3 = Color3.new(1, 1, 1)
+Button17.TextScaled = true
+Button17.Font = Enum.Font.Gotham
+Button17.BorderSizePixel = 0
+Button17.Parent = Scroll
+Button17.BackgroundTransparency = 0.7
+
+Instance.new("UICorner", Button17).CornerRadius = UDim.new(0, 6)
+
+Button17.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GearDynamix/Main-Scripts/refs/heads/main/Vexro's%20FE%20Emotes"))()
+end)
+
+-- Create a button inside the scroll frame --
 local Button102 = Instance.new("TextButton")
 Button102.Size = UDim2.new(1, -245, 0, 38)
 Button102.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
