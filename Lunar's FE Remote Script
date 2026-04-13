@@ -1,4 +1,3 @@
-print("Welcome Player To Lunar's FE Remote Fire Script. Your Free From Keys. This Will Only Be Updated When Someone Wants To Report Or Improve It. Thanks For Using This!!! It Means Alot To Me :D. Some Scripts May Be Out Of Date. Sorry :()")
 
 -- Services
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
