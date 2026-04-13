@@ -1,8 +1,5 @@
--- All Made By Myself. No Bull#hit --
 
--- Join My Discord Pls!: . --
 
-print("Welcome Player To Lunar's FE Script Source. Your Free From Keys. I Will Be Updating The Script Regularly. Thanks For Using This!!! It Means Alot To Me :D. Some Scripts May Be Out Of Date. Sorry :()")
 
 -- SERVICES --
 local Players = game:GetService("Players")
