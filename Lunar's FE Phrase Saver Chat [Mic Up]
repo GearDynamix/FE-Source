@@ -1,0 +1,323 @@
+
+
+
+
+
+-- SERVICES --
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- GUI --
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = player:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+-- Frames, Etc --
+
+-- MAIN FRAME --
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 325, 0, 500)
+MainFrame.Position = UDim2.new(0.5, -800, 0.5, -50)
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MainFrame.BackgroundTransparency = 0
+MainFrame.BorderSizePixel = 0
+MainFrame.Parent = ScreenGui
+
+local UserInputService = game:GetService("UserInputService")
+
+local dragging, dragInput, dragStart, startPos
+
+local function update(input)
+    local delta = input.Position - dragStart
+    MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+MainFrame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = MainFrame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+MainFrame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+
+Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, 16)
+
+-- 1. Create the ScrollingFrame
+local ScrollFrame = Instance.new("ScrollingFrame")
+ScrollFrame.Size = UDim2.new(0, 325, 0, 385) -- Adjust size to fit your UI
+ScrollFrame.Position = UDim2.new(0, 162.5, 0, 282)
+ScrollFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+ScrollFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+ScrollFrame.BorderSizePixel = 0
+ScrollFrame.ScrollBarThickness = 6
+ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0) -- Starts at 0, we will auto-size it
+ScrollFrame.Parent = MainFrame -- Or your ScreenGui
+
+-- 2. Add a UIListLayout (The "Organizer")
+-- This automatically stacks children vertically
+local UIList = Instance.new("UIListLayout")
+UIList.Parent = ScrollFrame
+UIList.SortOrder = Enum.SortOrder.LayoutOrder
+UIList.Padding = UDim.new(0, 5) -- 5 pixel gap between items
+
+-- 3. Make the Canvas auto-resize based on the content
+ScrollFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
+
+Instance.new("UICorner", ScrollFrame).CornerRadius = UDim.new(0, 16)
+
+
+local Frame1 = Instance.new("Frame")
+Frame1.Size = UDim2.new(0, 325, 0, 50)
+Frame1.Position = UDim2.new(0.5, -163, 0.5, -250)
+Frame1.BackgroundColor3 = Color3.fromRGB(66, 66, 66)
+Frame1.BackgroundTransparency = 0
+Frame1.BorderSizePixel = 0
+Frame1.Parent = MainFrame
+
+Instance.new("UICorner", Frame1).CornerRadius = UDim.new(0, 16)
+
+-- CLOSE BUTTON (top-right) --
+local Close = Instance.new("TextButton")
+Close.Size = UDim2.new(0, 26, 0, 26)
+Close.AnchorPoint = Vector2.new(1, 0)
+Close.Position = UDim2.new(0, 317, 0, 11)
+Close.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Close.BackgroundTransparency = 0
+Close.BorderSizePixel = 0
+Close.Text = "X"
+Close.TextScaled = true
+Close.Font = Enum.Font.GothamBold
+Close.TextColor3 = Color3.new(0, 0, 0)
+Close.Parent = MainFrame
+
+Instance.new("UICorner", Close).CornerRadius = UDim.new(0, 4)
+
+Close.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+end)
+
+-- CLOSE BUTTON (top-right) --
+local Close1 = Instance.new("TextButton")
+Close1.Size = UDim2.new(0, 26, 0, 26)
+Close1.AnchorPoint = Vector2.new(1, 0)
+Close1.Position = UDim2.new(0, 287, 0, 11)
+Close1.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+Close1.BackgroundTransparency = 0
+Close1.BorderSizePixel = 0
+Close1.Text = "-"
+Close1.TextScaled = true
+Close1.Font = Enum.Font.GothamBold
+Close1.TextColor3 = Color3.new(0, 0, 0)
+Close1.Parent = MainFrame
+
+Instance.new("UICorner", Close1).CornerRadius = UDim.new(0, 4)
+
+Close1.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy()
+end)
+
+-- Text Label (middle-top) --
+local Label = Instance.new("TextLabel")
+Label.Size = UDim2.new(0, 325, 0, 64)
+Label.AnchorPoint = Vector2.new(1, 0)
+Label.Position = UDim2.new(1, -36, 0, -8)
+Label.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
+Label.BackgroundTransparency = 1
+Label.BorderSizePixel = 0
+Label.Text = "Lunar's Text To Speech [Mic Up🎤]"
+Label.TextScaled = false
+Label.TextSize = 16
+Label.Font = Enum.Font.GothamBold
+Label.TextColor3 = Color3.new(255, 255, 255)
+Label.Parent = MainFrame
+
+Instance.new("UICorner", Label).CornerRadius = UDim.new(0, 8)
+
+-- New Word --
+local Button1 = Instance.new("TextButton")
+Button1.Size = UDim2.new(0, 70, 0, 28)
+Button1.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button1.Position = UDim2.new(0, 10, 0, 60)
+Button1.Text = "Add New Word"
+Button1.TextColor3 = Color3.new(1, 1, 1)
+Button1.TextScaled = true
+Button1.Font = Enum.Font.GothamBold
+Button1.BorderSizePixel = 0
+Button1.Parent = MainFrame
+Button1.BackgroundTransparency = 0
+
+Instance.new("UICorner", Button1).CornerRadius = UDim.new(0, 8)
+
+Button1.MouseButton1Click:Connect(function()
+
+end)
+
+-- New Word --
+local Button2 = Instance.new("TextButton")
+Button2.Size = UDim2.new(0, 100, 0, 26)
+Button2.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+Button2.Position = UDim2.new(0, 220, 0, 474)
+Button2.Text = "Infinite Yield"
+Button2.TextColor3 = Color3.new(1, 1, 1)
+Button2.TextScaled = true
+Button2.Font = Enum.Font.GothamBold
+Button2.BorderSizePixel = 0
+Button2.Parent = MainFrame
+Button2.BackgroundTransparency = 0
+
+Instance.new("UICorner", Button2).CornerRadius = UDim.new(0, 16)
+
+Button2.MouseButton1Click:Connect(function()
+
+end)
+
+-- Toggle TEXTBOX --
+local SearchBox = Instance.new("TextBox") -- Changed from TextButton
+SearchBox.Size = UDim2.new(0, 205, 0, 26) -- Increased width so text is visible
+SearchBox.AnchorPoint = Vector2.new(1, 0)
+SearchBox.Position = UDim2.new(0, 215, 0, 474)
+SearchBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60) -- Usually white for inputs
+SearchBox.BackgroundTransparency = 0
+SearchBox.BorderSizePixel = 0
+
+-- Text Settings
+SearchBox.Text = "" -- Start empty
+SearchBox.PlaceholderText = "Search For Created Words..." -- Shows when empty
+SearchBox.TextScaled = false
+SearchBox.TextSize = 16
+SearchBox.Font = Enum.Font.GothamBold
+SearchBox.TextColor3 = Color3.new(60, 60, 60)
+
+-- Behavior Settings
+SearchBox.ClearTextOnFocus = true -- Clears previous text when clicked
+SearchBox.TextXAlignment = Enum.TextXAlignment.Left -- Typical for inputs
+
+SearchBox.Parent = MainFrame
+
+SearchBox:GetPropertyChangedSignal("Text"):Connect(function()
+    local searchText = SearchBox.Text:lower() -- Convert to lowercase for easier matching
+    
+    -- Loop through everything inside the ScrollFrame
+    for _, item in ipairs(ScrollFrame:GetChildren()) do
+        -- Only check objects that are TextButtons (to avoid the UIListLayout)
+        if item:IsA("TextButton") then
+            local buttonText = item.Text:lower()
+            
+            -- Check if search is empty OR if the button text contains the search word
+            if searchText == "" or string.find(buttonText, searchText) then
+                item.Visible = true
+            else
+                item.Visible = false
+            end
+        end
+    end
+end)
+
+Instance.new("UICorner", SearchBox).CornerRadius = UDim.new(0, 8)
+
+
+-- Toggle TEXTBOX --
+local NewWordBox = Instance.new("TextBox") -- Changed from TextButton
+NewWordBox.Size = UDim2.new(0, 235, 0, 28) -- Increased width so text is visible
+NewWordBox.AnchorPoint = Vector2.new(1, 0)
+NewWordBox.Position = UDim2.new(0, 315, 0, 60)
+NewWordBox.BackgroundColor3 = Color3.fromRGB(60, 60, 60) -- Usually white for inputs
+NewWordBox.BackgroundTransparency = 0
+NewWordBox.BorderSizePixel = 0
+
+-- Letter Limit Logic (200 Characters)
+NewWordBox:GetPropertyChangedSignal("Text"):Connect(function()
+    if #NewWordBox.Text > 200 then
+        NewWordBox.Text = NewWordBox.Text:sub(1, 200)
+    end
+end)
+
+-- Text Settings
+NewWordBox.Text = "" -- Start empty
+NewWordBox.PlaceholderText = "Enter In New Word... 200 Letter Limit!" -- Shows when empty
+NewWordBox.TextScaled = true
+NewWordBox.TextSize = 16
+NewWordBox.Font = Enum.Font.GothamBold
+NewWordBox.TextColor3 = Color3.new(60, 60, 60)
+
+-- Behavior Settings
+NewWordBox.ClearTextOnFocus = true -- Clears previous text when clicked
+NewWordBox.TextXAlignment = Enum.TextXAlignment.Left -- Typical for inputs
+
+NewWordBox.Parent = MainFrame
+
+Instance.new("UICorner", NewWordBox).CornerRadius = UDim.new(0, 8)
+
+
+-- We use TextChatService for modern Roblox chat, or the legacy chat event
+local TextChatService = game:GetService("TextChatService")
+local Players = game:GetService("Players")
+
+Button1.MouseButton1Click:Connect(function()
+	local enteredText = NewWordBox.Text
+	
+	if enteredText ~= "" and enteredText ~= " " then
+		
+		-- 1. Create the Main Word Button
+		local ListButton = Instance.new("TextButton")
+		ListButton.Name = "Word_" .. enteredText
+		ListButton.Size = UDim2.new(1, 0, 0, 35)
+		ListButton.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+		ListButton.Text = "  " .. enteredText -- Added spaces so text doesn't hit the delete button
+		ListButton.TextColor3 = Color3.new(1, 1, 1)
+		ListButton.Font = Enum.Font.GothamBold
+		ListButton.TextSize = 14
+		ListButton.TextXAlignment = Enum.TextXAlignment.Left -- Align left to look cleaner
+		ListButton.Parent = ScrollFrame
+		
+		Instance.new("UICorner", ListButton).CornerRadius = UDim.new(0, 6)
+
+		-- 2. Create the DELETE Button (The "X")
+		local DeleteBtn = Instance.new("TextButton")
+		DeleteBtn.Name = "Delete"
+		DeleteBtn.Size = UDim2.new(0, 25, 0, 25)
+		-- Position it at the top right corner
+		DeleteBtn.Position = UDim2.new(1, -5, 0.5, 0)
+		DeleteBtn.AnchorPoint = Vector2.new(1, 0.5)
+		DeleteBtn.BackgroundColor3 = Color3.fromRGB(180, 50, 50) -- Red color
+		DeleteBtn.Text = "X"
+		DeleteBtn.TextColor3 = Color3.new(0, 0, 0)
+		DeleteBtn.Font = Enum.Font.GothamBold
+		DeleteBtn.TextSize = 14
+		DeleteBtn.Parent = ListButton -- Parented to the word button
+		
+		Instance.new("UICorner", DeleteBtn).CornerRadius = UDim.new(0, 4)
+		
+		-- 3. Delete Logic
+		DeleteBtn.MouseButton1Click:Connect(function()
+			ListButton:Destroy() -- Deletes the word button and itself
+		end)
+		
+		-- 4. Chat Logic (Original Feature)
+		ListButton.MouseButton1Click:Connect(function()
+			local channel = game:GetService("TextChatService").TextChannels.RBXGeneral
+			channel:SendAsync(enteredText)
+		end)
+		
+		-- Clear input
+		NewWordBox.Text = ""
+	end
+end)
